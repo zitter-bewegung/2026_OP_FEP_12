@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(void) {
+char s[100];
+int vowels = 0;
+int consonants = 0;
+int i = 0;
+printf("Введіть слово англійською: ");
+scanf("%s", s);
+while (s[i] != '\0') {
+char ch = s[i];
+if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'y' ||
+ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' || ch == 'Y') {
+vowels++;
+}
+else {
+consonants++;
+}
+i++;
+}
+printf("Кількість голосних: %d\n", vowels);
+printf("Кількість приголосних: %d\n", consonants);
+return 0;
+}
