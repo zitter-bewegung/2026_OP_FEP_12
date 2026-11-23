@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c;
+    float d, x1, x2;
+
+    printf("Введіть значення a, b, c: ");
+    scanf("%f %f %f", &a, &b, &c);
+
+    // Дискримінант
+    d = b * b - 4 * a * c;
+
+    printf("\nДискримінант = %.2f\n", d);
+
+    if (d > 0) {
+        x1 = (-b + sqrt(d)) / (2 * a);
+        x2 = (-b - sqrt(d)) / (2 * a);
+        printf("Два корені:\n");
+        printf("x1 = %.2f\n", x1);
+        printf("x2 = %.2f\n", x2);
+    }
+    else if (d == 0) {
+        x1 = -b / (2 * a);
+        printf("Один корінь:\n");
+        printf("x = %.2f\n", x1);
+    }
+    else {
+        printf("Коренів немає (D < 0)\n");
+    }
+
+    return 0;
+}

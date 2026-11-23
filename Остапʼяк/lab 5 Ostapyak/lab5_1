@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main(void) {
+int a, b;
+printf("Введіть перше число (a): ");
+scanf("%d", &a);
+printf("Введіть друге число (b): ");
+scanf("%d", &b);
+a > b ? printf("Число %d більше за %d\n", a, b) :
+a < b ? printf("Число %d менше за %d\n", a, b) :
+printf("Числа рівні (%d == %d)\n", a, b);
+return 0;
+}

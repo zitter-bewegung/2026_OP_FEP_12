@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main(void) {
+printf("Введіть ціле число для змінної x: ");
+scanf("%d", &x);
+n = &x;
+printf("Значення змінної x: %d\n", x);
+printf("Адреса змінної x (&x): %p\n", (void*)&x);
+printf("Значення через вказівник (*n): %d\n", *n);
+return 0;
+}

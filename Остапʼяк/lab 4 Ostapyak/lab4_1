@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main(void) {
+int a = 10, b = 3;
+printf("--- АРИФМЕТИЧНІ ОПЕРАТОРИ ---\n");
+printf("a + b = %d\n", a + b);
+printf("a - b = %d\n", a - b);
+printf("a * b = %d\n", a * b);
+printf("a / b = %d\n", a / b);
+printf("a %% b (остача) = %d\n", a % b);
+printf("Після інкременту і декременту: a = %d, b = %d\n\n", a, b);
+printf("--- ОПЕРАТОРИ ПОРІВНЯННЯ ---\n");
+printf("5 > 3 = %d\n", 5 > 3);
+printf("5 >= 5 = %d\n", 5 >= 5);
+printf("5 < 3 = %d\n", 5 < 3);
+printf("5 <= 3 = %d\n", 5 <= 3);
+printf("5 == 3 = %d\n", 5 == 3);
+printf("5 != 3 = %d\n\n", 5 != 3);
+int t1 = 1, t2 = 0;
+printf("--- ЛОГІЧНІ ОПЕРАТОРІ ---\n");
+printf("t1 && t2 (І) = %d\n", t1 && t2);
+printf("t1 || t2 (АБО) = %d\n", t1 || t2);
+printf("!t1 (НЕ) = %d\n\n", !t1);
+unsigned char x = 5;
+unsigned char y = 3;
+printf("--- ПОБІТОВІ ОПЕРАТОРИ ---\n");
+printf("x & y (І) = %d\n", x & y);
+printf("x | y (АБО) = %d\n", x | y);
+printf("x ^ y (XOR) = %d\n", x ^ y);
+printf("~x (НЕ) = %d\n", (unsigned char)~x);
+printf("x << 1 (зсув вліво) = %d\n", x << 1);
+printf("x >> 1 (зсув вправо) = %d\n", x >> 1);
+return 0;
+}

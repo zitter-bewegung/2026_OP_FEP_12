@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int number;
+
+    printf("Введіть число: ");
+    scanf("%d", &number);
+
+    int *ptr = &number;   // ptr зберігає адресу number
+
+    printf("\nЗначення змінної number = %d\n", number);
+    printf("Адреса змінної number = %p\n", &number);
+    printf("Значення через вказівник *ptr = %d\n", *ptr);
+    printf("Адреса, яку зберігає ptr = %p\n", ptr);
+
+    return 0;
+}

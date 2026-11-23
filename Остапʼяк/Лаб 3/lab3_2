@@ -1,0 +1,34 @@
+#include <stdio.h>
+#define MAX_PEOPLE 3 // Кількість осіб
+#define MAX_LENGTH 50 // Максимальна довжина стрічок
+int main() {
+char surnames[MAX_PEOPLE][MAX_LENGTH];
+char initials[MAX_PEOPLE][MAX_LENGTH];
+char emails[MAX_PEOPLE][MAX_LENGTH];
+char favorite_colors[MAX_PEOPLE][MAX_LENGTH];// Введення даних для
+кожної особи
+for (int i = 0; i < MAX_PEOPLE; i++) {
+printf("Введіть прізвище для особи %d: ", i + 1);
+fgets(surnames[i], MAX_LENGTH, stdin);
+printf("Введіть ініціали для особи %d: ", i + 1);
+fgets(initials[i], MAX_LENGTH, stdin);
+printf("Введіть електронну пошту для особи %d: ", i + 1);
+fgets(emails[i], MAX_LENGTH, stdin);
+printf("Введіть улюблений колір для особи %d: ", i + 1);
+fgets(favorite_colors[i], MAX_LENGTH, stdin);
+printf("\n");
+}
+printf("%-5s %-20s %-10s %-30s %-15s\n", "№ п/п", "Прізвище", "Ініціали",
+"Ел.пошта",
+"Улюблений колір");
+printf("-----------------------------------------------------------------------------\n");
+// Виведення даних у форматованому вигляді
+for (int i = 0; i < MAX_PEOPLE; i++) {
+printf("%-5d %-20s %-10s %-30s %-15s\n",
+i + 1,
+surnames[i],
+initials[i],
+emails[i],
+favorite_colors[i]);
+}
+return 0; }
