@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+int main(void) {
+char email[100];
+printf("Введіть електронну пошту для перевірки: ");
+scanf("%s", email);
+int len = strlen(email);
+int at_count = 0;
+int dot_count = 0;
+int at_index = -1;
+int last_dot_index = -1;
+int is_valid = 1;
+for (int i = 0; i < len; i++) {
+char c = email[i];
+if (c == ' ' || (c >= 'А' && c <= 'я') || c == 'і' || c == 'І' || c == 'є' || c == 'Є' ||
+c == 'ґ' || c == 'Ґ') {
+is_valid = 0;
+break;
+}
+if (c == '@') {
+at_count++;
+at_index = i;
+} else if (c == '.') {
+dot_count++;
+last_dot_index = i;
+}
+}
+if (at_count != 1 || dot_count < 1) {
+is_valid = 0;
+} else if (at_index == 0 || at_index == len - 1) {
+is_valid = 0;
+} else if (last_dot_index < at_index || last_dot_index == len - 1) {
+is_valid = 0;
+}
+if (is_valid) {
+printf("Адреса електронної пошти ВІДПОВІДАЄ правильному
+формату.\n");
+} else {
+printf("Помилка! Адреса електронної пошти НЕПРАВИЛЬНА.\n");
+}
+return 0;
+}
