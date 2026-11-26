@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void generate_array_10(int arr[10]) {
+for (int i = 0; i < 10; ++i) {
+arr[i] = rand() % 100;
+}
+}
+int* get_1d_element(int *arr, int size, int index) {
+if (index < 0 || index >= size) {
+return NULL;
+}
+return &arr[index];
+}
+int* get_2d_element(int matr[12][12], int rows, int cols, int r_index, int c_index) {
+if (r_index < 0 || r_index >= rows || c_index < 0 || c_index >= cols) {
+return NULL;
+}
+return &matr[r_index][c_index];
+}
+void find_min_max_sum(int arr[20], int *min_val, int *max_val, int *sum_val) {
+*min_val = arr[0];
+*max_val = arr[0];
+*sum_val = arr[0];
+for (int i = 1; i < 20; ++i) {
+if (arr[i] < *min_val) {
+*min_val = arr[i];
+}
+if (arr[i] > *max_val) {
+*max_val = arr[i];
+}
+*sum_val += arr[i];
+}
+}
+int main(void) {
+srand(time(NULL));
+printf("=== Завдання 2: Масив з 10 випадкових чисел ===\n");
+int arr10[10];
+generate_array_10(arr10);
+printf("Елементи масиву: ");
+for (int i = 0; i < 10; ++i) {
+printf("%d ", arr10[i]);
+}
+printf("\n\n");
+printf("=== Завдання 3а: Пошук елемента за індексом в одновимірному
+масиві ===\n");
+int target_index = 4;
+int *p1 = get_1d_element(arr10, 10, target_index);
+if (p1 != NULL) {
+printf("Елемент з індексом %d дорівнює: %d (його адреса: %p)\n",
+target_index, *p1, (void*)p1);
+} else {
+printf("Елемент відсутній!\n");
+}
+printf("\n");
+printf("=== Завдання 3б: Пошук елемента в двовимірному масиві 12x12
+===\n");
+int matr12[12][12];
+for (int r = 0; r < 12; ++r) {
+for (int c = 0; c < 12; ++c) {
+matr12[r][c] = r * 10 + c;
+}
+}
+int r_idx = 2, c_idx = 5;
+int *p2 = get_2d_element(matr12, 12, 12, r_idx, c_idx);
+if (p2 != NULL) {
+printf("Елемент matr[%d][%d] дорівнює: %d (адреса: %p)\n", r_idx, c_idx,
+*p2, (void*)p2);
+} else {
+printf("NULL: Елемент відсутній за такими індексами!\n");
+}
+printf("\n");
+printf("=== Завдання 4: Масив з 20 випадкових чисел (мін, макс, сума)
+===\n");
+int arr20[20];
+for (int i = 0; i < 20; ++i) {
+arr20[i] = rand() % 100;
+}
+printf("Елементи масиву з 20 чисел:\n");
+for (int i = 0; i < 20; ++i) {
+printf("%2d ", arr20[i]);
+}
+printf("\n");
+int min_val, max_val, sum_val;
+find_min_max_sum(arr20, &min_val, &max_val, &sum_val);
+printf("Мінімальний елемент: %d\n", min_val, min_val);
+printf("Максимальний елемент: %d\n", max_val, max_val);
+printf("Сума всіх елементів: %d\n", sum_val);
+return 0;
+}

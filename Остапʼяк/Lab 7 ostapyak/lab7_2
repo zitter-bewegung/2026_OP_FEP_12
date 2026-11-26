@@ -1,0 +1,15 @@
+#include <stdio.h>
+int recursiveSum(int current, int target) {
+if (current > target) {
+return 0;
+}
+return current + recursiveSum(current + 1, target);
+}
+int main(void) {
+int N = 12;
+int target = 100;
+int sum = recursiveSum(N, target);
+printf("Сума чисел від %d до 100 (рекурсивно) дорівнює: %d\n", N,
+sum);
+return 0;
+}

@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+#define N 10
+int main(void) {
+int numbers[N];
+char surnames[N][60];
+char names[N][60];
+printf("Введіть %d учасників у форматі: Номер Прізвище Ім'я\n", N);
+for (int i = 0; i < N; i++) {
+scanf("%d %59s %59s", &numbers[i], surnames[i], names[i]);
+}
+int total_len = 0;
+for (int i = 0; i < N; i++) {
+total_len += strlen(surnames[i]);
+}
+double avg_len = (double)total_len / N;
+int unique_names = 0;
+for (int i = 0; i < N; i++) {
+int is_new = 1;
+for (int j = 0; j < i; j++) {
+if (strcmp(names[i], names[j]) == 0) {
+is_new = 0;
+break;
+}
+}
+if (is_new) {
+unique_names++;
+}
+}
+printf("\nКількість різних імен: %d\n", unique_names);
+printf("Середня довжина прізвищ: %.2f\n", avg_len);
+for (int i = 0; i < N - 1; i++) {
+for (int j = 0; j < N - i - 1; j++) {
+if (strcmp(surnames[j], surnames[j + 1]) > 0) {
+char temp_s[60];
+strcpy(temp_s, surnames[j]);
+strcpy(surnames[j], surnames[j + 1]);
+strcpy(surnames[j + 1], temp_s);
+char temp_n[60];
+strcpy(temp_n, names[j]);
+strcpy(names[j], names[j + 1]);
+strcpy(names[j + 1], temp_n);
+int temp_num = numbers[j];
+numbers[j] = numbers[j + 1];
+numbers[j + 1] = temp_num;
+}
+}
+}
+printf("\nВідсортований список (Номер Ім'я Прізвище):\n");
+for (int i = 0; i < N; i++) {
+printf("%d %s %s\n", numbers[i], names[i], surnames[i]);
+}
+return 0;
+}
